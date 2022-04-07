@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRF</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="d-flex">
+      <div class="h1 my-4">SRTF</div>
+      <button id="animate-btn" class="ml-auto btn btn-warning my-3 ml-3">
+        Comenzar animación
+      </button>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-3 mr-5">
+        <!-- form -->
+        <div class="card p-3 d-flex">
+          <form class="">
+            <div class="h3">Agregar Proceso</div>
+            <div class="form-group">
+              <label for="">Duración</label>
+              <input class="form-control" type="number" min="1" id="total-time" />
+            </div>
+            <div class="form-group">
+              <label for="">LLegada</label>
+              <input class="form-control" type="number" min="0" id="arrival-time" value="0" />
+            </div>
+            <input class="btn btn-info" type="submit" value="Agregar" />
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 p-3">
+        <div class="h3">Lista de Procesos</div>
+        <!-- table -->
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>id</th>
+              <th>Duración</th>
+              <th>Llegada</th>
+              <th class="hidden-table">T. Inicio</th>
+              <th class="hidden-table">T. Finalización</th>
+              <th class="hidden-table">T. Turnaround</th>
+              <th class="hidden-table">T. Espera</th>
+              <th class="hidden-table">T. Respuesta</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="col-md-3 hidden-table">
+        <div class="h2">Datos <small class="text-muted">(promedio)</small></div>
+        <div class="p">
+          Turnaround: <span id="turnaroud-time"></span>
+        </div>
+        <div class="p">
+          Espera: <span id="waiting-time"></span>
+        </div>
+        <div class="p">
+          Respuesta: <span id="response-time"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="chartBox" class="chart-box hidden">
+        <canvas id="myChart" class=""></canvas>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
